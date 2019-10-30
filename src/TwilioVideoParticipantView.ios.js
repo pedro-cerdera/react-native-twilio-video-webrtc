@@ -25,11 +25,18 @@ class TwilioVideoParticipantView extends Component {
   }
 
   render () {
-    let scalesType = this.props.scaleType === 'fit' ? 1 : 2
-    return <RCTTWRemoteVideoView scalesType={scalesType} {...this.props}>{this.props.children}</RCTTWRemoteVideoView>
+    const scalesType = this.props.scaleType === 'fit' ? 1 : 2
+    return (
+      <RCTTWRemoteVideoView scalesType={scalesType} {...this.props}>
+        {this.props.children}
+      </RCTTWRemoteVideoView>
+    )
   }
 }
 
-const RCTTWRemoteVideoView = requireNativeComponent('RCTTWRemoteVideoView', TwilioVideoParticipantView)
+const RCTTWRemoteVideoView = requireNativeComponent(
+  'RCTTWRemoteVideoView',
+  TwilioVideoParticipantView
+)
 
 module.exports = TwilioVideoParticipantView
